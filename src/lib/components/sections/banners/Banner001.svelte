@@ -4,18 +4,18 @@
 </script>
 
 <section {...$$props}>
-	<div class=" m-auto flex h-full flex-col justify-center gap-5 text-center">
-		<h1 class="text-6xl">
-			<strong class="outline-title font-extrabold text-primary sm:block"> SedonaConnect </strong>
+	<div class="m-auto flex h-full flex-col justify-center gap-5 text-center">
+		<h1>
+			<strong class="font-extrabold sm:block"> Titre </strong>
 		</h1>
 
-		<p class="slogan max-w-3xl text-black">
+		<p class="slogan max-w-3xl">
 			" Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus numquam ea ! "
 		</p>
 
 		<div class="mt-8 flex flex-wrap justify-center gap-4">
-			<Button variant="destructive" on:click={() => goto('./auth/signUp')}>S'inscrire</Button>
-			<Button variant="outline">En Savoir Plus</Button>
+			<Button variant="destructive" on:click={() => goto('./auth/signUp')}>Action N° 1</Button>
+			<Button variant="outline">Action N° 2</Button>
 		</div>
 	</div>
 </section>
@@ -27,8 +27,5 @@
 		background-position: center;
 		background-color: var(--secondary-001);
 		background-blend-mode: multiply;
-	}
-	.outline-title {
-		-webkit-text-stroke: 2px white;
 	}
 </style>

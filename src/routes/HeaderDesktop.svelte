@@ -54,26 +54,21 @@
 		isSideMenuOpen.update((value) => !value);
 	}
 
-
-	// CLASS
-	const linkNavDesktop =
-		'block flex items-center justify-center text-xl h-[2rem] border-b-2 border-transparent  transition hover:border-white active:border-white';
-	const linkNavMobile =
-		'block rounded-lg px-4 py-2 text-base font-medium text-center hover:bg-gray-100 hover:text-gray-700';
-
 	// Check current path
 	const currentPath = $state($page.url.pathname);
 </script>
 
 <svelte:window on:scroll={() => handleScroll()} />
 
-<header class="fixed z-20 flex h-[4rem] w-screen items-center justify-between bg-background px-4 sm:px-6 lg:px-8">
+<header
+	class="fixed-header"
+>
 	<!-- LOGO -->
 	<div class="flex h-full items-center">
 		<a class="flex" href="/">
 			<span class="sr-only">Home</span>
 			<!-- <img src="./logo.png" alt="logo" class="m-2 rounded-full" width="45" height="45" /> -->
-			<span class="my-auto hidden font-serif text-2xl sm:flex">L'Ataié</span>
+			<span class="my-auto hidden font-serif text-2xl sm:flex">LOGO</span>
 		</a>
 	</div>
 
@@ -83,42 +78,42 @@
 			<ul class="flex h-full items-center gap-6 text-sm">
 				<li>
 					<a
-						class="{linkNavDesktop} {activeLink === '#about' ? 'active' : ''}"
+						class="link-nav-desktop {activeLink === '#about' ? 'active' : ''}"
 						href="/#about"
 						onclick={(e) => handleActiveMenu(e.target)}>Nous</a
 					>
 				</li>
 				<li>
 					<a
-						class="{linkNavDesktop} {activeLink === '#advantage' ? 'active' : ''}"
+						class="link-nav-desktop {activeLink === '#advantage' ? 'active' : ''}"
 						href="/#advantage"
 						onclick={(e) => handleActiveMenu(e.target)}>Avantages</a
 					>
 				</li>
 				<li>
 					<a
-						class="{linkNavDesktop} {activeLink === '#service' ? 'active' : ''}"
+						class="link-nav-desktop {activeLink === '#service' ? 'active' : ''}"
 						href="/#service"
 						onclick={(e) => handleActiveMenu(e.target)}>Services</a
 					>
 				</li>
 				<li>
 					<a
-						class="{linkNavDesktop} {activeLink === '#step' ? 'active' : ''}"
+						class="link-nav-desktop {activeLink === '#step' ? 'active' : ''}"
 						href="/#step"
 						onclick={(e) => handleActiveMenu(e.target)}>Démarche</a
 					>
 				</li>
 				<li>
 					<a
-						class="{linkNavDesktop} {activeLink === '#testimonial' ? 'active' : ''}"
+						class="link-nav-desktop {activeLink === '#testimonial' ? 'active' : ''}"
 						href="/#testimonial"
 						onclick={(e) => handleActiveMenu(e.target)}>Témoignages</a
 					>
 				</li>
 				<li>
 					<a
-						class="{linkNavDesktop} {activeLink === '#contact' ? 'active' : ''}"
+						class="link-nav-desktop {activeLink === '#contact' ? 'active' : ''}"
 						href="/#contact"
 						onclick={(e) => handleActiveMenu(e.target)}>Contact</a
 					>
@@ -149,7 +144,7 @@
 		<!-- BURGER -->
 		{#if currentPath === '/'}
 			<div class="flex lg:hidden">
-				<Burger addClassButton="" clickAction={()=>handleOpenSideMenu()}  />
+				<Burger addClassButton="" clickAction={() => handleOpenSideMenu()} />
 			</div>
 		{/if}
 	</div>
@@ -185,21 +180,25 @@
 				</li>
 
 				<li>
-					<a href="./#advantage" class={linkNavMobile} onclick={() => handleOpenSideMenu()}>
+					<a href="./#advantage" class="link-nav-mobile" onclick={() => handleOpenSideMenu()}>
 						Avantage
 					</a>
 				</li>
 
 				<li>
-					<a href="./#service" class={linkNavMobile} onclick={() => handleOpenSideMenu()}> Service </a>
+					<a href="./#service" class="link-nav-mobile" onclick={() => handleOpenSideMenu()}>
+						Service
+					</a>
 				</li>
 
 				<li>
-					<a href="./#step" class={linkNavMobile} onclick={() => handleOpenSideMenu()}> Démarche </a>
+					<a href="./#step" class="link-nav-mobile" onclick={() => handleOpenSideMenu()}>
+						Démarche
+					</a>
 				</li>
 
 				<li>
-					<a href="./#testimonial" class={linkNavMobile} onclick={() => handleOpenSideMenu()}>
+					<a href="./#testimonial" class="link-nav-mobile" onclick={() => handleOpenSideMenu()}>
 						Témoignage
 					</a>
 				</li>
@@ -207,7 +206,7 @@
 				<li>
 					<a
 						href="./#contact"
-						class="{linkNavMobile} bg-primary text-white"
+						class="link-nav-mobile bg-primary text-white"
 						onclick={() => handleOpenSideMenu()}
 					>
 						Demander un devis.
@@ -255,5 +254,66 @@
 <style lang="scss">
 	.active {
 		border-bottom-color: var(--primary-001);
+	}
+
+	.link-nav-desktop {
+		display: block;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.25rem;
+		height: 2rem;
+		border-bottom: 2px solid transparent;
+		transition: border 0.3s ease;
+
+		&:hover {
+			border-color: var(--foreground);
+		}
+
+		&:active {
+			border-color: var(--foreground);
+		}
+	}
+
+	.link-nav-mobile {
+		display: block;
+		border-radius: 0.5rem;
+		padding: 0.5rem 1rem;
+		font-size: 1rem;
+		font-weight: 500;
+		text-align: center;
+		color: #333;
+		transition:
+			background-color 0.3s ease,
+			color 0.3s ease;
+
+		&:hover {
+			background-color: #f3f4f6;
+			color: #4b5563;
+		}
+	}
+
+	.fixed-header {
+		position: fixed;
+		z-index: 20;
+		display: flex;
+		height: 4rem;
+		width: 100vw; 
+		align-items: center;
+		justify-content: space-between;
+		background-color: var(--background); 
+		padding: 0 1rem; 
+		color: var(--foreground); 
+		transition: padding 0.3s ease;
+
+		@media screen and (min-width: 640px) {
+			padding-left: 1.5rem; 
+			padding-right: 1.5rem;
+		}
+
+		@media screen and (min-width: 1024px) {
+			padding-left: 2rem; 
+			padding-right: 2rem;
+		}
 	}
 </style>

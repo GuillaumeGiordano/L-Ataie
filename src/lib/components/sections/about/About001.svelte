@@ -1,9 +1,18 @@
 <script lang="ts">
-	export let classAddSection = '';
-	export let idSection: string;
+	interface Props {
+		classAddSection: string;
+		idSection: string;
+	}
+
+	let { 
+		classAddSection = "" , 
+		idSection,
+		...others 
+	}: Props = $props();
+
 </script>
 
-<section id={idSection} class={classAddSection} {...$$props}>
+<section id={idSection} class={classAddSection} {...others}>
 	<div class="grid grid-cols-1 lg:grid-cols-2">
 		<div class="relative z-5 dark:bg-muted lg:py-16">
 			<div class="relative h-64 sm:h-80 lg:h-full">

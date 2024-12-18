@@ -31,6 +31,10 @@
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
+		background-color: var(--secondary-004);
+		padding: 6px;
+		border-radius: 4px;
+
 	}
 
 	.burger-line {

@@ -81,6 +81,9 @@ main {
 	align-items: center;
 
 	padding-top: rem(64);
+
+	background-color: var(--background);
+	color: var(--foreground);
 }
 
 section {
@@ -88,9 +91,6 @@ section {
 	max-width: var(--breakpoint-desktop-large);
 	margin: 0;
 	padding: 0;
-
-	background-color: var(--background);
-	color: var(--foreground);
 
 	display: flex;
 	flex-direction: column;

@@ -6,6 +6,20 @@ const config: Config = {
 	content: ["./src/**/*.{html,js,svelte,ts}"],
 	safelist: ["dark"],
 	theme: {
+		zIndex: {
+			'-10': '-10',
+			'0': '0',
+			'5': '5',
+			'10': '10',
+			'20': '20',
+			'25': '25',
+			'30': '30',
+			'40': '40',
+			'50': '50',
+			'75': '75',
+			'100': '100',
+			auto: 'auto'
+		},
 		container: {
 			center: true,
 			padding: "2rem",
@@ -18,8 +32,10 @@ const config: Config = {
 				border: "hsl(var(--border) / <alpha-value>)",
 				input: "hsl(var(--input) / <alpha-value>)",
 				ring: "hsl(var(--ring) / <alpha-value>)",
-				background: "hsl(var(--background) / <alpha-value>)",
-				foreground: "hsl(var(--foreground) / <alpha-value>)",
+				background: "var(--background)",
+				foreground: "var(--foreground)",
+				dark: 'var(--theme-dark) ',
+				light: 'var(--theme-light) ',
 				primary: {
 					DEFAULT: "hsl(var(--primary) / <alpha-value>)",
 					foreground: "hsl(var(--primary-foreground) / <alpha-value>)"
