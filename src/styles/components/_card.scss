@@ -1,0 +1,10 @@
+@use '$styles/helpers/mixins' as *;
+
+.card {
+	@include flexCenter; // A MODIFIER POUR LE PERSONNALISER POUR CHAQUE BALISE
+	padding: rem(4);
+	margin: rem(4);
+	border: var(--border-base);
+	border-radius: var(--btn-radius);
+	box-shadow: var(--shadow-md);
+}

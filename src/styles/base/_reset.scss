@@ -1,0 +1,42 @@
+@use '$styles/helpers/mixins' as *;
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	line-height: rem(24);
+
+	font-size: var(--text-base);
+	font-family: var(--font-primary);
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: var(--background);
+	color: var(--foreground);
+}
+
+body.no-scroll {
+	overflow: hidden;
+}
+
+ol,
+ul {
+	list-style: none;
+	margin-block-start: 0;
+	margin-block-end: 0;
+	margin-inline-start: 0;
+	margin-inline-end: 0;
+	padding-inline-start: 0;
+}
+
+fieldset {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font-family: inherit;
+}
