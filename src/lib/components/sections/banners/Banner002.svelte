@@ -1,9 +1,17 @@
 <script lang="ts">
-	export let classAddSection = '';
-	export let idSection: string;
+	interface Props {
+		addClass?: string;
+		[key: string]: any; 
+	}
+
+	let { 
+		addClass = "" ,
+		...others
+	}: Props = $props();
+
 </script>
 
-<section id={idSection} class={classAddSection} {...$$props}>
+<section class="banner {addClass}" {...others}>
 	<img src="./bg3.jpeg" alt="logo" class="-z-1 absolute inset-0 h-full w-full object-cover object-center" />
 
 	<div class="mx-auto h-full lg:flex lg:h-3/4 lg:items-center lg:px-8">

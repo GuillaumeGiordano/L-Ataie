@@ -4,10 +4,16 @@
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-	import { isActiveBurger, isSideMenuOpen } from './navigationStore';
 	import Burger from './Burger.svelte';
+	import ColorPicker from 'svelte-awesome-color-picker';
+	import { isActiveBurger, isSideMenuOpen } from '$stores/navigation.store';
+	import { colorPick } from '$stores/color.store';
 
 	let activeLink: string = $state('');
+
+	$effect(() => {
+		console.log('color', $colorPick);
+	});
 
 	const sections = ['#about', '#advantage', '#service', '#step', '#testimonial', '#contact'];
 	const SCROLL_MARGIN_TOP = 64; // 4rem in pixels
@@ -60,9 +66,7 @@
 
 <svelte:window on:scroll={() => handleScroll()} />
 
-<header
-	class="fixed-header"
->
+<header class="fixed-header z-30">
 	<!-- LOGO -->
 	<div class="flex h-full items-center">
 		<a class="flex" href="/">
@@ -141,10 +145,9 @@
 			</div>
 		</div>
 
-		<!-- BURGER -->
 		{#if currentPath === '/'}
 			<div class="flex lg:hidden">
-				<Burger addClassButton="" clickAction={() => handleOpenSideMenu()} />
+				<Burger clickAction={() => handleOpenSideMenu()} />
 			</div>
 		{/if}
 	</div>
@@ -156,7 +159,7 @@
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
 		<div
 			role="button"
-			class="fixed inset-0 z-10 h-screen w-screen bg-background bg-opacity-75"
+			class="fixed inset-0 z-40 h-screen w-screen bg-background opacity-25"
 			onclick={() => handleOpenSideMenu()}
 		></div>
 	{/if}
@@ -165,7 +168,7 @@
 	<div
 		class="fixed {$isSideMenuOpen
 			? 'block'
-			: 'hidden'} right-0 top-[4rem] z-10 flex h-full w-full flex-col justify-between border-e bg-card sm:w-[20rem]"
+			: 'hidden'} right-0 top-[4rem] z-50 flex h-full  flex-col justify-between border-e bg-background sm:w-[20rem]"
 	>
 		<div class="p-4">
 			<ul class="mt-6 space-y-1">
@@ -206,13 +209,14 @@
 				<li>
 					<a
 						href="./#contact"
-						class="link-nav-mobile bg-primary text-white"
+						class="link-nav-mobile"
 						onclick={() => handleOpenSideMenu()}
 					>
 						Demander un devis.
 					</a>
 				</li>
 			</ul>
+			<ColorPicker bind:hex={$colorPick} isDialog={true} />
 		</div>
 
 		<!-- FOOTER NAV -->
@@ -230,23 +234,6 @@
 					></span>
 				</label>
 			</div>
-
-			<!-- LOGIN -->
-			<a href="/" class="flex items-center gap-2 bg-white p-4 hover:bg-gray-50">
-				<img
-					alt=""
-					src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-					class="size-10 rounded-full object-cover"
-				/>
-
-				<div>
-					<p class="text-xs">
-						<strong class="block font-medium">Eric Frusciante</strong>
-
-						<span> eric@frusciante.com </span>
-					</p>
-				</div>
-			</a>
 		</div>
 	</div>
 {/if}
@@ -295,24 +282,24 @@
 
 	.fixed-header {
 		position: fixed;
-		z-index: 20;
 		display: flex;
 		height: 4rem;
-		width: 100vw; 
+		width: 100vw;
 		align-items: center;
 		justify-content: space-between;
-		background-color: var(--background); 
-		padding: 0 1rem; 
-		color: var(--foreground); 
+		background-color: var(--background);
+		padding: 0 1rem;
+		color: var(--foreground);
 		transition: padding 0.3s ease;
+		box-shadow: var(--shadow-xl);
 
 		@media screen and (min-width: 640px) {
-			padding-left: 1.5rem; 
+			padding-left: 1.5rem;
 			padding-right: 1.5rem;
 		}
 
 		@media screen and (min-width: 1024px) {
-			padding-left: 2rem; 
+			padding-left: 2rem;
 			padding-right: 2rem;
 		}
 	}

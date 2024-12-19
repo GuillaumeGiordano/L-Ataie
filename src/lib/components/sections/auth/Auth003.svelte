@@ -5,11 +5,20 @@
     - @tailwindcss/forms
 -->
 <script lang="ts">
-	export let classAddSection = '';
-	export let idSection: string;
+	interface Props {
+		addClass?: string;
+		isRight?:boolean
+		[key: string]: any;
+	}
+
+	let { 
+		addClass = "" ,
+		isRight = false, 
+		...others 
+	}: Props = $props();
 </script>
 
-<section id={idSection} class={classAddSection} {...$$props}>
+<section class={addClass} {...others}>
 	<div class="lg:grid lg:min-h-screen lg:grid-cols-12">
 		<section class="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
 			<img

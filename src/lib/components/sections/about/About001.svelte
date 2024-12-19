@@ -1,18 +1,17 @@
 <script lang="ts">
 	interface Props {
-		classAddSection: string;
-		idSection: string;
+		addClass?: string;
+		[key: string]: any;
 	}
 
 	let { 
-		classAddSection = "" , 
-		idSection,
+		addClass = "" , 
 		...others 
 	}: Props = $props();
 
 </script>
 
-<section id={idSection} class={classAddSection} {...others}>
+<section class={addClass} {...others}>
 	<div class="grid grid-cols-1 lg:grid-cols-2">
 		<div class="relative z-5 dark:bg-muted lg:py-16">
 			<div class="relative h-64 sm:h-80 lg:h-full">
@@ -24,13 +23,18 @@
 			<span class="hidden lg:absolute lg:inset-y-0 lg:-start-16 lg:block lg:w-16 lg:bg-background"></span>
 
 			<div class="item-center lg:p-18 flex flex-col gap-10 p-8 sm:p-10">
-				<h2 class="text-2xl font-bold text-primary sm:text-3xl">Notre Histoire.</h2>
+				<h2 class="text-2xl font-bold text-primary sm:text-3xl">Titre de présentation ?!</h2>
 
 				<p class=" text-foreground">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, molestiae! Quidem est esse numquam odio
 					deleniti, beatae, magni dolores provident quaerat totam eos, aperiam architecto eius quis quibusdam fugiat
 					dicta.
 				</p>
+
+				<blockquote class="mt-6 border-l-2 pl-6 italic">
+					"After all," he said, "everyone enjoys a good joke, so it's only fair that
+					they should pay for the privilege."
+				</blockquote>
 
 				<p class=" text-foreground">
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, molestiae! Quidem est esse numquam odio

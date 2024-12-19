@@ -4,8 +4,21 @@
   Plugins:
     - @tailwindcss/forms
 -->
+<script lang="ts">
+	interface Props {
+		addClass?: string;
+		isRight?:boolean
+		[key: string]: any;
+	}
 
-<section class="relative flex flex-wrap lg:h-screen lg:items-center">
+	let { 
+		addClass = "" ,
+		isRight = false, 
+		...others 
+	}: Props = $props();
+</script>
+
+<section class="relative flex flex-wrap lg:h-screen lg:items-center {addClass}" {...others}>
 	<div class="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
 		<div class="max-w-lg mx-auto text-center">
 			<h1 class="text-2xl font-bold sm:text-3xl">Get started today!</h1>

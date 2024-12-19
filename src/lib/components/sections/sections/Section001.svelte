@@ -1,9 +1,19 @@
 <script lang="ts">
-	export let classAddSection = '';
-	export let idSection: string;
+
+	interface Props {
+		addClass?: string;
+		isRight?:boolean
+		[key: string]: any;
+	}
+
+	let { 
+		addClass = "" ,
+		isRight = false, 
+		...others 
+	}: Props = $props();
 </script>
 
-<section id={idSection} class={classAddSection} {...$$props}>
+<section class={addClass} {...others}>
 	<div class="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
 		<div class="max-w-xl">
 			<h2 class="text-3xl font-bold sm:text-4xl">What makes us special</h2>

@@ -4,8 +4,21 @@
   Plugins:
     - @tailwindcss/forms
 -->
+<script lang="ts">
+	interface Props {
+		addClass?: string;
+		isRight?:boolean
+		[key: string]: any;
+	}
 
-<div class="max-w-screen-xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
+	let { 
+		addClass = "" ,
+		isRight = false, 
+		...others 
+	}: Props = $props();
+</script>
+
+<div class="max-w-screen-xl mx-auto px-4 py-16 sm:px-6 lg:px-8 {addClass}" {...others}>
 	<div class="max-w-lg mx-auto">
 		<h1 class="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">Get started today</h1>
 

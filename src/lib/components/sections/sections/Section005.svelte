@@ -1,9 +1,18 @@
 <script lang="ts">
-	export let classAddSection = '';
-	export let idSection: string;
+	interface Props {
+		addClass?: string;
+		isRight?:boolean
+		[key: string]: any;
+	}
+
+	let { 
+		addClass = "" ,
+		isRight = false, 
+		...others 
+	}: Props = $props();
 </script>
 
-<section id={idSection} class={classAddSection} {...$$props}>
+<section class={addClass} {...others}>
 	<div class="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:items-center lg:gap-x-16">
 		<div class="max-w-lg mx-auto text-center lg:mx-0 ltr:lg:text-left rtl:lg:text-right">
 			<h2 class="text-3xl font-bold text-primary sm:text-4xl">Find your career path</h2>

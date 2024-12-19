@@ -1,7 +1,18 @@
 <script lang="ts">
+		interface Props {
+		addClass?: string;
+		isRight?:boolean
+		[key: string]: any;
+	}
+
+	let { 
+		addClass = "" ,
+		isRight = false, 
+		...others 
+	}: Props = $props();
 </script>
 
-<section {...$$props}>
+<section class="{addClass}" {...others}>
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
 		<article class="flex flex-col rounded-lg border border-primary bg-muted px-4 py-8 text-center">
 			<dt class="order-last text-lg font-medium text-foreground">Total Sales</dt>

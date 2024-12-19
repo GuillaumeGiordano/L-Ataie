@@ -1,13 +1,12 @@
 <script lang="ts">
-	import { isActiveBurger } from './navigationStore';
+	import { colorPick } from '$stores/color.store';
+	import { isActiveBurger } from '$stores/navigation.store';
 
 	interface Props {
-		addClassButton: string;
 		clickAction: ()=> void;
 	}
 
 	let { 
-		addClassButton = "" , 
 		clickAction 
 	}: Props = $props();
 
@@ -17,7 +16,7 @@
 
 </script>
 
-<button class="burger-container {addClassButton} {$isActiveBurger && 'active'}" onclick={()=>handleClick()} aria-label="Button Burger" >
+<button class="burger-container {$isActiveBurger && 'active'}" style="background-color: {$colorPick};" onclick={()=>handleClick()} aria-label="Button Burger" >
 	<div class="burger-line line1"></div>
 	<div class="burger-line line2"></div>
 	<div class="burger-line line3"></div>
@@ -31,7 +30,6 @@
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
-		background-color: var(--secondary-004);
 		padding: 6px;
 		border-radius: 4px;
 

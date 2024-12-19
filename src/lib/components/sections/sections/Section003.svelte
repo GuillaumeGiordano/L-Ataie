@@ -1,9 +1,19 @@
 <script lang="ts">
-	export let classAddSection = '';
-	export let idSection: string;
+	interface Props {
+		addClass?: string;
+		isRight?:boolean
+		[key: string]: any;
+	}
+
+	let { 
+		addClass = "" ,
+		isRight = false, 
+		...others 
+	}: Props = $props();
+
 </script>
 
-<section id={idSection} class={classAddSection} {...$$props}>
+<section class={addClass} {...others}>
 	<div class="max-w-3xl mx-auto text-center">
 		<h2 class="text-3xl font-bold text-primary sm:text-4xl">Quels sont nos avantages ?</h2>
 		<p class="mt-4 text-foreground">

@@ -1,11 +1,18 @@
 <script lang="ts">
-	import Input001 from '$lib/components/form/input/Input001.svelte';
+	interface Props {
+		addClass?: string;
+		isRight?:boolean
+		[key: string]: any;
+	}
 
-	export let classAddSection = '';
-	export let idSection: string;
+	let { 
+		addClass = "" ,
+		isRight = false, 
+		...others 
+	}: Props = $props();
 </script>
 
-<section id={idSection} class={classAddSection} {...$$props}>
+<section class={addClass} {...others}>
 	<div class="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
 		<div class="lg:col-span-2 lg:py-12">
 			<div class="max-w-lg mx-auto text-center lg:mx-0 ltr:lg:text-left rtl:lg:text-right">
@@ -89,7 +96,7 @@
 				</div>
 
 				<div>
-					<Input001 />
+					<!-- <Input001 /> -->
 				</div>
 
 				<div>

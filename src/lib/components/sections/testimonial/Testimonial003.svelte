@@ -5,11 +5,20 @@
 -->
 
 <script lang="ts">
-	export let classAddSection = '';
-	export let idSection: string;
+	interface Props {
+		addClass?: string;
+		isRight?:boolean
+		[key: string]: any;
+	}
+
+	let { 
+		addClass = "" ,
+		isRight = false, 
+		...others 
+	}: Props = $props();
 </script>
 
-<section id={idSection} class={classAddSection} {...$$props}>
+<section class={addClass} {...others}>
 	<div class="max-w-screen-2xl mx-auto px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
 		<div class="md:flex md:items-end md:justify-between">
 			<div class="max-w-xl">

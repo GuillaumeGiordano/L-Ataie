@@ -67,7 +67,10 @@
 	--shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 	--shadow-md: 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 	--shadow-base: 0 0 10px 0 rgba(0, 0, 0, 0.05);
-	--shadow-xl: 0 0 10px 1px rgba(0, 0, 0, 0.25) /* BORDER */ --border-sm: 2px solid var(--primary-600);
+	--shadow-xl: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+	
+	/* BORDER */ 
+	--border-sm: 2px solid var(--primary-600);
 	--border-md: 2px solid var(--primary-200);
 	--border-base: 2px solid #e5e5e5;
 
