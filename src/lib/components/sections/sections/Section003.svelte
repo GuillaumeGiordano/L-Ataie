@@ -13,7 +13,7 @@
 
 </script>
 
-<section class={addClass} {...others}>
+<section class="scroll-mt-20 {addClass}" {...others}>
 	<div class="max-w-3xl mx-auto text-center">
 		<h2 class="text-3xl font-bold text-primary sm:text-4xl">Quels sont nos avantages ?</h2>
 		<p class="mt-4 text-foreground">

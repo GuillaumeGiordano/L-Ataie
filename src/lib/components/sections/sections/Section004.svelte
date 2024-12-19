@@ -12,7 +12,7 @@
 	}: Props = $props();
 </script>
 
-<section class={addClass} {...others}>
+<section class="scroll-mt-20 {addClass}" {...others}>
 	<div class="max-w-screen-xl mx-auto px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
 		<div class="max-w-lg mx-auto text-center">
 			<h2 class="text-3xl font-bold sm:text-4xl">Kickstart your marketing</h2>

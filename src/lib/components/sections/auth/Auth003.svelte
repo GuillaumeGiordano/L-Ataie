@@ -18,7 +18,7 @@
 	}: Props = $props();
 </script>
 
-<section class={addClass} {...others}>
+<section class="scroll-mt-20 {addClass}" {...others}>
 	<div class="lg:grid lg:min-h-screen lg:grid-cols-12">
 		<section class="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
 			<img

@@ -16,7 +16,7 @@
 	}: Props = $props();
 </script>
 
-<section class={addClass} {...others}>
+<section class="scroll-mt-20 {addClass}" {...others}>
 	<div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-16">
 		<div
 			class="relative h-64 overflow-hidden rounded-lg sm:h-80 {isRight ? 'lg:order-last' : 'lg:order-first'} lg:h-full"
@@ -33,7 +33,7 @@
 			</p>
 
 			<div>
-				<Button variant="destructive" style="background-color: {$colorPick};" on:click={() => goto('./')}>Action N° 1</Button>
+				<Button variant="destructive" style="background-color: {$colorPick};" onclick={() => goto('./')}>Action N° 1</Button>
 			</div>
 		</div>
 	</div>

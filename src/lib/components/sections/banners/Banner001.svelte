@@ -2,6 +2,7 @@
 	import { goto } from '$app/navigation';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { colorPick } from '$stores/color.store';
+	import { mode } from "mode-watcher";
 
 	interface Props {
 		addClass?: string;
@@ -12,10 +13,9 @@
 		addClass = "" , 
 		...others
 	}: Props = $props();
-
 </script>
 
-<section class="banner background-img  {addClass}" {...others} >
+<section class="banner background-img {$mode === "dark" ? "opacity-75" : ""} {addClass}" {...others} >
 	<div class="m-auto flex h-full flex-col justify-center gap-5 text-center">
 		<h1  style="color: {$colorPick};" >
 			<strong class="font-extrabold sm:block"> Titre </strong>
@@ -26,7 +26,7 @@
 		</p>
 
 		<div class="mt-8 flex flex-wrap justify-center gap-4">
-			<Button variant="destructive" style="background-color: {$colorPick};" on:click={() => goto('./auth/signUp')}>Action N° 1</Button>
+			<Button variant="destructive" style="background-color: {$colorPick};" onclick={() => goto('./auth/signUp')}>Action N° 1</Button>
 			<Button variant="secondary">Action N° 2</Button>
 		</div>
 	</div>

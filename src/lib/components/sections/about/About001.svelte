@@ -11,7 +11,7 @@
 
 </script>
 
-<section class={addClass} {...others}>
+<section class="scroll-mt-20 {addClass}" {...others}>
 	<div class="grid grid-cols-1 lg:grid-cols-2">
 		<div class="relative z-5 dark:bg-muted lg:py-16">
 			<div class="relative h-64 sm:h-80 lg:h-full">

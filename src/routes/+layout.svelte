@@ -10,7 +10,7 @@
 
 <HeaderDesktop />
 
-<main class="bg-green">
+<main>
 	{@render children()}
 </main>
 

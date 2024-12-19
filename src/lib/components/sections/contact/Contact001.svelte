@@ -12,7 +12,7 @@
 	}: Props = $props();
 </script>
 
-<section class={addClass} {...others}>
+<section class="scroll-mt-20 {addClass}" {...others}>
 	<div class="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
 		<div class="lg:col-span-2 lg:py-12">
 			<div class="max-w-lg mx-auto text-center lg:mx-0 ltr:lg:text-left rtl:lg:text-right">

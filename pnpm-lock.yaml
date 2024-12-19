@@ -20,9 +20,6 @@ importers:
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
-      lucide-svelte:
-        specifier: ^0.468.0
-        version: 0.468.0(svelte@5.14.4)
       mode-watcher:
         specifier: ^0.5.0
         version: 0.5.0(svelte@5.14.4)
@@ -66,6 +63,9 @@ importers:
       globals:
         specifier: ^15.0.0
         version: 15.14.0
+      lucide-svelte:
+        specifier: ^0.468.0
+        version: 0.468.0(svelte@5.14.4)
       postcss:
         specifier: ^8.4.49
         version: 8.4.49

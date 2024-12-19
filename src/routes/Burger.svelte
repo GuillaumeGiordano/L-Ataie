@@ -16,7 +16,7 @@
 
 </script>
 
-<button class="burger-container {$isActiveBurger && 'active'}" style="background-color: {$colorPick};" onclick={()=>handleClick()} aria-label="Button Burger" >
+<button class="burger-container z-75 {$isActiveBurger && 'active'}" style="background-color: {$colorPick};" onclick={()=>handleClick()} aria-label="Button Burger" >
 	<div class="burger-line line1"></div>
 	<div class="burger-line line2"></div>
 	<div class="burger-line line3"></div>
@@ -24,7 +24,7 @@
 
 <style lang="css">
 	.burger-container {
-		z-index: 21;
+		z-index: 100 !important;
 		display: flex;
 		flex-direction: column;
 		align-items: center;

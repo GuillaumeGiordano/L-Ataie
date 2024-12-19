@@ -16,16 +16,19 @@
 	import Auth001 from "$lib/components/sections/auth/Auth001.svelte";
 	import Auth003 from "$lib/components/sections/auth/Auth003.svelte";
 	import Auth002 from "$lib/components/sections/auth/Auth002.svelte";
+	import Gallery from "$lib/components/sections/gallery/Gallery.svelte";
 
 </script>
 
 
 <Banner001 id="banner1" />
-<Banner002 id="banner2" />
+<!-- <Banner002 id="banner2" /> -->
 
-<About001 id="about" addClass="scroll-mt-2rem p-8" />
+<About001 id="about"/>
 
-<Section006 id="section1" />
+<Gallery id="gallery"/>
+
+<Section006 id="advantage" />
 <Section006 id="section2" isRight={true} />
 <Section001 id="section4" />
 <Section003 id="section5" />

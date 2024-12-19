@@ -13,7 +13,7 @@
 	}: Props = $props();
 </script>
 
-<section class={addClass} {...others}>
+<section class="scroll-mt-20 {addClass}" {...others}>
 	<div class="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
 		<div class="max-w-xl">
 			<h2 class="text-3xl font-bold sm:text-4xl">What makes us special</h2>
