@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { handleOpenSideMenu } from "$stores/navigation.store";
+	import { handleOpenSideMenu, isSideMenuOpen } from "$stores/navigation.store";
 	import ColorPicker from "svelte-awesome-color-picker";
 	import LinkMobile from "./LinkMobile.svelte";
 	import { colorPick } from "$stores/color.store";
@@ -14,36 +14,37 @@
 
 </script>
 
-
 <li>
     <LinkMobile
         libelle="Nous"
         href="#about"
         idSection="about"
         {activeLink}
-        handleClick={() => handleOpenSideMenu()}
+        handleClick={() => $isSideMenuOpen && handleOpenSideMenu() }
     />
 </li>
 
 <li>
     <LinkMobile
-        libelle="Avantage"
-        href="#advantage"
-        idSection="advantage"
+        libelle="Gallerie"
+        href="#galery"
+        idSection="galery"
         {activeLink}
-        handleClick={() => handleOpenSideMenu()}
+        handleClick={() => $isSideMenuOpen &&  handleOpenSideMenu()}
     />
 </li>
 
 <li>
     <LinkMobile
-        libelle="Service"
-        href="#service"
-        idSection="service"
+        libelle="Parcours"
+        href="#step"
+        idSection="step"
         {activeLink}
-        handleClick={() => handleOpenSideMenu()}
+        handleClick={() => $isSideMenuOpen &&  handleOpenSideMenu()}
     />
 </li>
+
+
 
 <li>
     <LinkMobile
@@ -51,7 +52,7 @@
         href="#testimonial"
         idSection="testimonial"
         {activeLink}
-        handleClick={() => handleOpenSideMenu()}
+        handleClick={() => $isSideMenuOpen &&  handleOpenSideMenu()}
     />
 </li>
 
@@ -61,6 +62,6 @@
         href="#contact"
         idSection="contact"
         {activeLink}
-        handleClick={() => handleOpenSideMenu()}
+        handleClick={() => $isSideMenuOpen &&  handleOpenSideMenu()}
     />
 </li>
