@@ -6,12 +6,13 @@
 	import Testimonial002 from "$lib/components/sections/testimonial/Testimonial002.svelte";
 	import Gallery002 from "$lib/components/sections/gallery/Gallery002.svelte";
 	import Timeline001 from "$lib/components/sections/timeline/Timeline001.svelte";
+	import Timeline002 from "$lib/components/sections/timeline/Timeline002.svelte";
 </script>
 
 <Banner001 id="banner" />
 <About001 id="about"/>
 <Gallery002 id="galery"/>
-<Timeline001 id="step" />
+<Timeline002 id="step" />
 <Contact001 id="contact" />
 <Testimonial002 id="testimonial"/>
 
