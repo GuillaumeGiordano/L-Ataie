@@ -23,10 +23,12 @@
 
 	function handleMouseOver(e: { currentTarget: HTMLElement }) {
 		e.currentTarget.style.backgroundColor = $colorPick;
+		e.currentTarget.style.color = "white";
 	}
 
 	function handleMouseOut(e: { currentTarget: HTMLElement }) {
 		e.currentTarget.style.backgroundColor = activeLink === idSection ? $colorPick : 'transparent';
+		e.currentTarget.style.color = $colorPick;
 	}
 </script>
 
@@ -34,7 +36,10 @@
 <a
 	{href}
 	class="link-nav-mobile {addClass}"
-	style="background-color: {activeLink === idSection ? $colorPick : 'transparent'};"
+	style="
+		background-color: {activeLink === idSection ? $colorPick : 'transparent'}; 
+		color: {activeLink !== idSection ? $colorPick : 'white'};
+		"
 	onmouseover={(e) => handleMouseOver(e)}
 	onmouseout={(e) => handleMouseOut(e)}
 	onclick={() => handleClick && handleClick()}
@@ -49,9 +54,12 @@
 		border-radius: 0.5rem;
 		padding: 0.5rem 1rem;
 		font-size: 1rem;
-		font-weight: 500;
+		font-weight: 600;
 		text-align: center;
 		color: var(--foreground);
+		transition:
+			background-color 0.5s ease,
+			color 0.5s ease;
 
 		&:hover {
 			color: var(--white);

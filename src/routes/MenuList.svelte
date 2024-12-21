@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { handleOpenSideMenu, isSideMenuOpen } from "$stores/navigation.store";
-	import ColorPicker from "svelte-awesome-color-picker";
 	import LinkMobile from "./LinkMobile.svelte";
-	import { colorPick } from "$stores/color.store";
 
 	interface Props {
 		activeLink: string | null;

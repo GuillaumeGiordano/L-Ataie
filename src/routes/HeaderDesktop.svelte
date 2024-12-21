@@ -10,13 +10,16 @@
 	import { goto } from '$app/navigation';
 	import MenuList from './MenuList.svelte';
 	import ColorPicker from 'svelte-awesome-color-picker';
-	import { mode } from 'mode-watcher';
 	import * as Dialog from '$lib/components/ui/dialog';
+	import Logo from './Logo.svelte';
 
 	let activeLink: string | null = $state('');
+	let logoImage: HTMLImageElement;
 
 	$effect(() => {
-		console.log('activeLink', activeLink);
+		logoImage = document.querySelector('img')!;
+		const logoSVG = document.querySelector('img')!.children[0];
+		console.log('logoSVG', logoSVG);
 	});
 
 	function handleScroll() {
@@ -45,18 +48,11 @@
 
 <header class="fixed-header z-30">
 	<!-- LOGO -->
-	<div class="flex h-full items-center" style="color: {$colorPick};">
-		<a class="flex" href="/">
-			<span class="sr-only">Home</span>
-			<img src="./logo.png" alt="logo" class="m-2 rounded-full" width="45" height="45" />
-			<span class="my-auto font-serif text-2xl sm:flex"
-				><strong class="font-extrabold"> LOGO </strong></span
-			>
-		</a>
-	</div>
+	<!-- <img src="./logo_v2.svg" alt="logo" class="text-background" width="45" height="45" /> -->
+	<Logo />
 
 	<!-- MENU -->
-	<nav class="hidden h-full lg:block">
+	<nav class="hidden h-full lg:block" style="color: {$colorPick};">
 		<ul class="flex h-full items-center gap-6 text-sm">
 			<MenuList {activeLink} />
 		</ul>
